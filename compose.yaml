@@ -1,0 +1,29 @@
+services:
+  agent:
+    build:
+      context: .
+      args:
+        QWEN_CODE_VERSION: "0.13.1"
+    env_file:
+      - path: ${SHARED_ENV_FILE:-.env}
+        required: false
+      - path: .env
+        required: false
+    environment:
+      AGENT_PROFILE_DIR: /app/agent
+      MEMORY_DB_PATH: /data/memory.db
+      QWEN_RUNTIME_DIR: /data/qwen-runtime
+      QWEN_WORKSPACE_DIR: /data/qwen-workspace
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    volumes:
+      - agent_memory:/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+volumes:
+  agent_memory:
