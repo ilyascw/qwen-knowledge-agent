@@ -182,9 +182,8 @@ Qwen Code `0.13.1` уже предоставляет стандартные ин
 Текущая реализация использует MCP и tool permissions. Остальные интерфейсы
 остаются доступными для следующих итераций.
 
-Встроенный system prompt Qwen Code сохранён в
-[`QWEN_CODE_SYSTEM_PROMPT.md`](QWEN_CODE_SYSTEM_PROMPT.md). Специализация
-knowledge-агента описана в [`agent/QWEN.md`](agent/QWEN.md).
+Специализация knowledge-агента описана в
+[`agent/QWEN.md`](agent/QWEN.md).
 
 ## Границы выполнения
 
